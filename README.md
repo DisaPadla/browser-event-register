@@ -125,7 +125,7 @@ class CRM extends Component {
 ## eventRegister API
 ### ```eventRegister.add({ type, listener, node?, options? })```
 Add new listener for custom event
- * ```type: string``` Required
+ * ```type```: string Required
  * ```listener```: function Required
  * ```node```: Node Optional (```document``` by default)
  * ```options```: object Optional  
@@ -143,7 +143,7 @@ Removing an existing event type
   * ```options```: object Optional  
 
 ### ```eventRegister.removeAllListenersByType(type)```
-Removing all existing event types
+Removing all existing events by type
   * ```type```: string Required
 
 

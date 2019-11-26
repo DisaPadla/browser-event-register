@@ -1,3 +1,21 @@
+interface BasicParams {
+  type: string
+  node?: Node
+  options?: AddEventListenerOptions
+}
+
+interface IParams extends BasicParams {
+  listener()
+}
+
+interface IEvents {
+  [type: string]: Array<{
+    listener()
+    node?: Node
+    options?: AddEventListenerOptions
+  }>
+}
+
 export class EventRegister {
   constructor() {
     if (!Event && !CustomEvent) {
@@ -5,11 +23,10 @@ export class EventRegister {
     }
   }
 
-  private noop = () => {}
+  private events: IEvents = {}
 
-  private events: Object = {}
-
-  public add({ node = document, type, listener, options }) {
+  public add(params: IParams) {
+    const { node = document, type, listener, options } = params;
     if (!this.events[type]) {
       this.events[type] = []
     }
@@ -17,7 +34,7 @@ export class EventRegister {
     node.addEventListener(type, listener, options)
   }
 
-  public dispatch(params) {
+  public dispatch(params: string | BasicParams) {
     let node
     let type
     let options
@@ -36,7 +53,8 @@ export class EventRegister {
     node.dispatchEvent(evt)
   }
 
-  public remove({ node = document, type, listener, options }) {
+  public remove(params: IParams) {
+    const { node = document, type, listener, options } = params;
     this.isTypeExist('remove', type)
     node.removeEventListener(type, listener, options)
     const index = this.events[type].findIndex(item => item.listener === listener)
@@ -46,8 +64,8 @@ export class EventRegister {
     }
   }
 
-  public removeAllListeners(type) {
-    this.isTypeExist('removeAllListeners', type)
+  public removeAllListenersByType(type: string) {
+    this.isTypeExist('removeAllListenersByType', type)
     for (let i = 0; i < this.events[type].length; i++) {
       this.events[type][i].node.removeEventListener(
         type,
@@ -58,7 +76,7 @@ export class EventRegister {
     delete this.events[type]
   }
 
-  private isTypeExist(methodName, type) {
+  private isTypeExist(methodName: string, type: string): void | Error {
     if (!this.events[type]) {
       throw new Error(
         `Custom event "${type}" doesn't exist. You can't ${methodName} it.${this.allowedEvents()}`
@@ -66,7 +84,7 @@ export class EventRegister {
     }
   }
 
-  private allowedEvents() {
+  private allowedEvents(): string {
     return Object.keys(this.events).reduce(
       (str, evName, i) => `${str}\t\t${i + 1}) ${evName}\n`,
       '\n\tAllowed custom events:\n'

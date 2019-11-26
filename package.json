@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
+    "test": "jest --coverage",
     "size": "npm run build && size-limit",
     "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}",
     "prepublish": "tsc"
@@ -37,8 +38,11 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^2.2.1",
     "@size-limit/time": "^2.2.1",
+    "@types/jest": "^24.0.23",
+    "jest": "^24.9.0",
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
   }
 }

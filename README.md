@@ -7,8 +7,10 @@ If you are not familiar with Custom Event click [here](https://developer.mozilla
 ## Usage
 Basic case:
 ```js
+/* index.js in main app */
+
 window.eventRegister = new EventRegister();
-/* index.js in EntryPoint repo */
+
 function updateCount() {
   // --------- some code ---------
 }
@@ -68,7 +70,7 @@ Full Example:
 ```js
 window.eventRegister = new EventRegister();
 
-/* App.container.js in Entry Point  */
+/* App.container.js  */
 class App extends Component {
   state = { title: '' }
 
@@ -100,7 +102,7 @@ class App extends Component {
 ```
 
 ```js
-/* CRM.container.js in CRM app  */
+/* AnotherApp.container.js  */
 
 class CRM extends Component {
   componentDidMount() {

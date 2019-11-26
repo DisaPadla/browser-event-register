@@ -1,0 +1,44 @@
+{
+  "name": "browser-event-register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "size": "npm run build && size-limit",
+    "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}",
+    "prepublish": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DisaPadla/browser-event-register.git"
+  },
+  "author": "DisaPadla",
+  "license": "MIT",
+  "keywords": [
+    "browser",
+    "event",
+    "custom event"
+  ],
+  "env": {
+    "browser": true
+  },
+  "bugs": {
+    "url": "https://github.com/DisaPadla/browser-event-register/issues"
+  },
+  "homepage": "https://github.com/DisaPadla/browser-event-register#readme",
+  "size-limit": [
+    {
+      "limit": "600 B",
+      "path": "./build/index.js"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^2.2.1",
+    "@size-limit/time": "^2.2.1",
+    "onchange": "^6.1.0",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.2"
+  }
+}

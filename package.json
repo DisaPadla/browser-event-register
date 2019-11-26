@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest && codecov",
+    "test": "jest",
     "size": "npm run build && size-limit",
     "prettier-watch": "onchange '**/*.ts' -- prettier --write {{changed}}",
     "prepublish": "tsc"

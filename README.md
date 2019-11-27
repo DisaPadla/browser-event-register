@@ -3,6 +3,10 @@
 [![codecov](https://codecov.io/gh/DisaPadla/browser-event-register/branch/master/graph/badge.svg)](https://codecov.io/gh/DisaPadla/browser-event-register)
 [![Build Status](https://travis-ci.com/DisaPadla/browser-event-register.svg?branch=master)](https://travis-ci.com/DisaPadla/browser-event-register)
 
+```sh
+npm i --save browser-event-register
+```
+
 If you are not familiar with Custom Event click [here](https://developer.mozilla.org/en-US/docs/Web/API/Event/Event) and [here](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
 ## Usage

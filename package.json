@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "size": "npm run build && size-limit",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",

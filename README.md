@@ -74,7 +74,7 @@ window.eventRegister.dispatch({
 })
 ```
 
-Full Example:
+Full Example (React):
 
 ```js
 window.eventRegister = new EventRegister()
@@ -113,12 +113,12 @@ class App extends Component {
 ```js
 /* AnotherApp.container.js  */
 
-class CRM extends Component {
+class AnotherApp extends Component {
   componentDidMount() {
     window.eventRegister.dispatch({
       type: 'ep-set-title',
       options: {
-        detail: 'CRM title',
+        detail: 'AnotherApp title',
       }
     });
   }

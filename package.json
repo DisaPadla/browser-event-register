@@ -1,6 +1,6 @@
 {
   "name": "browser-event-register",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -9,12 +9,20 @@
     "watch": "tsc -w",
     "test": "jest",
     "size": "npm run build && size-limit",
-    "prepare": "tsc"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DisaPadla/browser-event-register.git"
   },
+  "bin": {
+    "browser-event-register": "./bin/browser-event-register.js"
+  },
+  "files": [
+    "bin/*",
+    "build/**/*",
+    "README.md"
+  ],
   "author": "DisaPadla",
   "license": "MIT",
   "keywords": [
